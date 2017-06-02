@@ -1,27 +1,27 @@
-#Project Setup
+# Project Setup
 
-##Setting up PrintIO SDK in your IDE
+## Setting up PrintIO SDK in your IDE
 
 On this page we are going to guide you through setting up the PrintIO SDK in an existing app. This guide will cover Android Studio and Eclipse IDE.
 
 ### Android Studio guide
 
-####1. Clone print.io project from this repository
+#### 1. Clone print.io project from this repository
 
-####2. Import print.io SDK to your project as module
+#### 2. Import print.io SDK to your project as module
 Open Module Setting -> New Module -> Import Existing Project (Phone and Tablet Application) -> Choose directory of print.io SDK
 
 ### Eclipse guide
 
-####1. Clone print.io project from this repository
+#### 1. Clone print.io project from this repository
 
-####2. Import print.io SDK project
+#### 2. Import print.io SDK project
 File -> Import -> General -> Existing Projects into Workspace*
 
-####3. Mark print.io SDK as library project
+#### 3. Mark print.io SDK as library project
 Select print.io SDK project -> Properties -> Android -> Make sure that "Is Library" is ticked
 
-####4. Add print.io SDK dependencies 
+#### 4. Add print.io SDK dependencies 
 Libraries will have to be added manually when developing with Eclipse  
 (In Android Studio, these dependencies are automatically resolved by Gradle dependency management mechanism).
 
@@ -37,23 +37,23 @@ Libraries will have to be added manually when developing with Eclipse
 
 	Select print.io SDK project-> Properties -> Android -> Add... -> Choose Facebook SDK library
 
-####5. Add print.io SDK library to your project
+#### 5. Add print.io SDK library to your project
 Select your project -> Properties -> Android -> Add... -> Choose printio SDK library
 
 
 
-##AndroidManifest Configuration
+## AndroidManifest Configuration
 
 After importing and adding print.io SDK project, AndroidManifest.xml file of your project has to be set like so:
 
-###1. Android target version
+### 1. Android target version
 As mentioned above, print.io supports Android 4.0+ (API level 14 and higher) as target version. For lower versions, the user will be notified that it is not supported. So the `<uses-sdk>` node of your manifest should look like this:
 
 ```xml
 <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="19" />
 ```
 
-###2. Permissions
+### 2. Permissions
    You will need to add these permissions to manifest:
    
 ```xml
@@ -70,7 +70,7 @@ As mentioned above, print.io supports Android 4.0+ (API level 14 and higher) as 
 <!-- End PayPal -->
 ```
 
-###3. Activities
+### 3. Activities
 Please add following activities to your AndroidManifest.xml file:
 ```xml
 <!-- Begin PIO -->
@@ -223,15 +223,15 @@ Please add following activities to your AndroidManifest.xml file:
 <!-- End Facebook -->
 ```
 
-###4. Application element
+### 4. Application element
 Important: `android:largeHeap="true"` attribute is required to be set in `<application\>` element.
 
-###5. Facebook App ID
+### 5. Facebook App ID
 Add your facebook_app_id to `res/strings.xml`.
 ```xml
 <string name="facebook_app_id">YourFacebookAppId</string>
 ```
 
-###6. Add fonts for Text feature  
+### 6. Add fonts for Text feature  
 Copy PIO SDK `fonts` folder to the `assets` folder of the host app.  
 The archive with fonts can be downloaded from [here](https://www.dropbox.com/s/6s60ldvxlo6q6ta/fonts.zip?dl=1).
